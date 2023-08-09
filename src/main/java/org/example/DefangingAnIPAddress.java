@@ -27,14 +27,17 @@ public class DefangingAnIPAddress {
         System.out.println(formattedAddress);
     }
     public String defangIPaddr(String address) {
-        String newIp = null;
+        StringBuilder formattedAddress = new StringBuilder(address);
+        int n=0;
 
         for (int i=0; i < address.length(); i++) {
-            if (address.charAt(i) == '.') {
-                address = address.substring(0,i-1) + '[' + address.substring(i-1);
+            if (address.toCharArray()[i] == '.') {
+                formattedAddress.insert(i+n, '[');
+                n++;
+                formattedAddress.insert((i+1)+n, ']');
+                n++;
             }
         }
-
-        return newIp;
+        return formattedAddress.toString();
     }
 }
