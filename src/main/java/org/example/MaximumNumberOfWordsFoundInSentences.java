@@ -27,11 +27,11 @@ public class MaximumNumberOfWordsFoundInSentences {
                     count++;
                 }
             }
-            count++;
-            if (count > cds) {
+            if (count+1 > cds) {
                 cds = count;
             }
+            count = 0;
         }
-        return cds;
+        return cds+1;
     }
 }
