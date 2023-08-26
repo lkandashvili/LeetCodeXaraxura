@@ -27,6 +27,7 @@ public class MaximumNumberOfWordsFoundInSentences {
                     count++;
                 }
             }
+            count++;
             if (count > cds) {
                 cds = count;
             }
