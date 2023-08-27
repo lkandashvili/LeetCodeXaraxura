@@ -6,20 +6,10 @@ import java.util.List;
 public class SubstractTheProductAndSumOfDigitsOfAnInteger {
     public static void main(String[] args) {
 
-//        System.out.println(subtractProductAndSum(234));
         System.out.println(subtractProductAndSum(234));
 
-        int n = 234;
-
-        List<Integer> product = new ArrayList<>();
-
-        int sum = 0;
-        int x = 5;
 
 
-//        while (n % (Math.pow(10,x)) != 0) {
-//
-//        }
     }
         public static int subtractProductAndSum(int n) {
             List<Integer> productList = new ArrayList<>();
