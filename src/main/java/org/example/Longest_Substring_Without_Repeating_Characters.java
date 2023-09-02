@@ -9,28 +9,40 @@ public class Longest_Substring_Without_Repeating_Characters {
 
         String s = "pwwkew";
         int count = 0;
+        int n = 0;
 
         Map<Character, Integer> map = new HashMap<>();
 
         for (Character c : s.toCharArray()) {
             if (map.containsKey(c)) {
-                System.out.println(map.size());;
+//                System.out.println(map.size());;
                 break;
             }
+            n++;
             map.put(c, count);
         }
+        System.out.println(lengthOfLongestSubstring(s));
 
     }
 
     public static int lengthOfLongestSubstring(String s) {
 
-        Set<Character> chars = new HashSet<>();
+        int count = 0;
+        int n = 0;
+        Map<Character, Integer> map = new HashMap<>();
 
         for(Character c : s.toCharArray()) {
-            chars.add(c);
+
+            if (map.containsKey(c)) {
+                continue;
+            }
+
+            map.put(c, count);
+            n++;
+            count ++;
         }
 
-        return chars.size();
+        return Math.max(n, count);
     }
 
 }
