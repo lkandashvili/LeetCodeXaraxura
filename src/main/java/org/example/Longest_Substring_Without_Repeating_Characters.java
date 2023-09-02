@@ -1,25 +1,23 @@
 package org.example;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Longest_Substring_Without_Repeating_Characters {
 
     public static void main(String[] args) {
 
         String s = "pwwkew";
+        int count = 0;
 
-        Set<Character> chars = new HashSet<>();
+        Map<Character, Integer> map = new HashMap<>();
+
         for (Character c : s.toCharArray()) {
-            chars.add(c);
-        }
-
-
-        for (char g : chars) {
-            System.out.println(g);
+            if (map.containsKey(c)) {
+                System.out.println(map.size());;
+                break;
+            }
+            map.put(c, count);
         }
 
     }
