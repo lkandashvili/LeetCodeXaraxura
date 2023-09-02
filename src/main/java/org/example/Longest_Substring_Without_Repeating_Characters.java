@@ -7,7 +7,7 @@ public class Longest_Substring_Without_Repeating_Characters {
 
     public static void main(String[] args) {
 
-        String s = "bbbbb";
+        String s = "dvdf";
         int count = 0;
         int n = 0;
 
@@ -26,11 +26,12 @@ public class Longest_Substring_Without_Repeating_Characters {
     }
 
     public static int lengthOfLongestSubstring(String s) {
-        // pwwkew //
+        if (s.length() == 0) {
+            return 0;
+        }
         int count = 0;
-        int n = 0;
+        int n = 1;
         Map<Character, Integer> map = new HashMap<>();
-
 
         for(Character c : s.toCharArray()) {
 
@@ -44,9 +45,9 @@ public class Longest_Substring_Without_Repeating_Characters {
                     count++;
                     continue;
                 }
-
                 map.put(c, count);
                 count ++;
+                n = Math.max(n,count);
             }
         }
         return n;
