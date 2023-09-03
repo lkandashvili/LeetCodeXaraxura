@@ -8,49 +8,27 @@ public class Longest_Substring_Without_Repeating_Characters {
     public static void main(String[] args) {
 
         String s = "dvdf";
-        int count = 0;
-        int n = 0;
-
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (Character c : s.toCharArray()) {
-            if (map.containsKey(c)) {
-//                System.out.println(map.size());;
-                break;
-            }
-            n++;
-            map.put(c, count);
-        }
         System.out.println(lengthOfLongestSubstring(s));
-
     }
 
     public static int lengthOfLongestSubstring(String s) {
-        if (s.length() == 0) {
-            return 0;
-        }
-        int count = 0;
-        int n = 1;
-        Map<Character, Integer> map = new HashMap<>();
+        // dvdf //
+        int ans = 0;
+        char[] arr = s.toCharArray();
 
-        for(Character c : s.toCharArray()) {
-
-            if (Character.isLetter(c)) {
-
-                if (map.containsKey(c)) {
-                    n = Math.max(n,count);
-                    map.clear();
-                    count = 0;
-                    map.put(c,count);
-                    count++;
+        for (int i=0; i < s.length(); i++) {
+            for (int j=1; j < s.length(); j++) {
+                if ( j < i) {
                     continue;
                 }
-                map.put(c, count);
-                count ++;
-                n = Math.max(n,count);
+                if (arr[i] != arr[j]) {
+                    ans++;
+                }
+                j++;
             }
         }
-        return n;
+
+        return ans;
     }
 
 }
